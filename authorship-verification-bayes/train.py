@@ -5,6 +5,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.pipeline import Pipeline
 from tira.rest_api_client import Client
+from sklearn.linear_model import LogisticRegression
 
 if __name__ == "__main__":
 
@@ -21,7 +22,7 @@ if __name__ == "__main__":
 
     # Train the model
     model = Pipeline(
-        [("vectorizer", CountVectorizer()), ("classifier", MultinomialNB())]
+        [("vectorizer", CountVectorizer()), ("classifier", LogisticRegression())]
     )
     model.fit(df["text"], df["generated"])
 
